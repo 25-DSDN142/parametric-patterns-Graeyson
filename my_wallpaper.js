@@ -8,6 +8,8 @@ var facesize = 1.02; //og 1
 
 
 
+
+
 function setup_wallpaper(pWallpaper) {
   pWallpaper.output_mode(DEVELOP_GLYPH);
   //pWallpaper.output_mode(GRID_WALLPAPER);
@@ -69,6 +71,7 @@ push();
 translate(0, 0);
 scale(facesize);
 drawface();
+
 pop();
 
 //draw mouth
@@ -197,17 +200,13 @@ function draweyes(x, y) {
   fill(255, 255, 255);
   noStroke();
   ellipse(97, 57, 52, 52);
-
-  fill(255, 255, 255);
-  noStroke();
   ellipse(143, 103, 52, 52);
 
   fill(58, 172, 207); //pupil
   noStroke();
   ellipse(97, 57, 25, 25);
-
-  fill(58, 172, 207); //pupil
-  noStroke();
   ellipse(143, 103, 25, 25);
+
+ 
 
 }
