@@ -4,15 +4,14 @@ var eyex = -10;
 var eyey = 10; 
 var mouthx = -10;
 var mouthy = 10;
-var facesize = 1.02; //og 1
-
-
+var facesize = 1.05; //og 1
+var mviolet = 'violet';
+var epurple = 'purple';
 
 
 
 function setup_wallpaper(pWallpaper) {
   pWallpaper.output_mode(DEVELOP_GLYPH);
-  //pWallpaper.output_mode(GRID_WALLPAPER);
   //pWallpaper.output_mode(GRID_WALLPAPER);
 
   pWallpaper.resolution(FIT_TO_SCREEN);
@@ -29,74 +28,6 @@ function wallpaper_background() {
   background(250, 240, 245); //light honeydew green colour
 }
 
-function my_symbol() { // do not rename this function. Treat this similarly to a Draw function
-
-//background
-fill(133, 237, 140);
-noStroke();
-triangle(0, 0, 0, 200, 200, 0);
-
-fill(25, 79, 38);
-noStroke();
-triangle(0, 200, 20, 200, 200, 0);
-
-fill(25, 79, 38);
-noStroke();
-triangle(0, 200, 200, 0, 200, 20);
-
-fill(25, 79, 38);
-noStroke();
-triangle(0, 200, 200, 0, 100, 100);
-
-//top
-fill(68, 130, 150);
-noStroke();
-rect(0, 0, 200, 30);
-
-fill(68, 130, 150);
-noStroke();
-triangle(0, 0, 2, 200, 30, 0);
-
-fill(107, 205, 237);
-noStroke();
-rect(0, 0, 200, 20);
-
-fill(107, 205, 237);
-noStroke();
-triangle(0, 0, 0, 220, 20, 0);
-
-
-//draw face
-push();
-translate(0, 0);
-scale(facesize);
-drawface();
-
-pop();
-
-//draw mouth
-push();
-translate(mouthx, mouthy);
-scale(1);
-drawmouth();
-pop();
-
-//draw nose
-push();
-translate(0, 0);
-scale(1);
-drawnose();
-pop();
-
-//draw eyes
-push();
-translate(eyex, eyey);
-scale(1);
-draweyes();
-pop();
-}
-
-
 
 function drawface(x, y) {
   //face
@@ -109,14 +40,10 @@ function drawface(x, y) {
   noStroke();
   ellipse(110, 90, 125, 135);
 
-  //face
+ 
   fill(61, 133, 58);
   noStroke();
   ellipse(110, 90, 125, 125);
-
-  //face
-  fill(61, 133, 58);
-  noStroke();
   ellipse(110, 95, 125, 125);
 }
 
@@ -126,48 +53,24 @@ function drawmouth(x, y) {
   fill(96, 166, 93);
   noStroke(0);
   ellipse(60, 100, 60, 60);
-
-  fill(96, 166, 93);
-  noStroke(0);
   ellipse(100, 140, 60, 60);
-
-  fill(96, 166, 93);
-  noStroke(0);
   triangle(30, 100, 30, 170, 100, 170);
-
-  fill(96, 166, 93); //space filler
-  noStroke(0);
-  ellipse(60, 130, 30, 30);
+  ellipse(60, 130, 30, 30); //space filler
 
   //shadows
   fill(27, 61, 38);
   noStroke();
   ellipse(100, 150, 40, 40);
-
-  fill(27, 61, 38);
-  noStroke();
   triangle(100, 150, 30, 170, 100, 170);
-
-  fill(27, 61, 38);
-  noStroke();
   triangle(30, 160, 30, 170, 100, 160);
 
   //inner mouth
-  fill(47, 84, 45);
+  fill(mfill);
   noStroke();
   ellipse(60, 110, 45, 45);
-
-  fill(47, 84, 45);
-  noStroke();
   ellipse(90, 140, 45, 45);
-
-  fill(47, 84, 45);
-  noStroke();
   triangle(37.5, 110, 40.5, 159.5, 90, 162.5);
-
-  fill(47, 84, 45); //space filler
-  noStroke();
-  ellipse(60, 130, 25, 25);
+  ellipse(60, 130, 25, 25); //space filler
 
 }
 
@@ -176,21 +79,9 @@ function drawnose(x, y) {
   fill(47, 84, 45);
   noStroke();
   ellipse(94, 100, 10, 10);
-
-  fill(47, 84, 45);
-  noStroke();
   ellipse(100, 106, 10, 10);
-
-  fill(47, 84, 45);
-  noStroke();
   triangle(89, 100, 89, 111, 100, 111);
-
-  fill(47, 84, 45); //space filler
-  noStroke();
-  ellipse(95, 105, 4, 4);
-
-  fill(47, 84, 45);
-  noStroke();
+  ellipse(95, 105, 4, 4); //space filler
   triangle(94, 100, 100, 106, 155, 45);
 
 }
@@ -202,11 +93,75 @@ function draweyes(x, y) {
   ellipse(97, 57, 52, 52);
   ellipse(143, 103, 52, 52);
 
-  fill(58, 172, 207); //pupil
+  fill(efill); //pupil
   noStroke();
   ellipse(97, 57, 25, 25);
   ellipse(143, 103, 25, 25);
 
  
+}
+
+function my_symbol() { // do not rename this function. Treat this similarly to a Draw function
+  // let bgFill;
+
+   if (facesize > 1.05) {
+     mfill = mviolet;
+     efill = epurple;
+   } else {
+     mfill = color(47, 84, 45);
+     efill = color (58, 172, 207);
+  }
+
+  //background
+  fill(133, 237, 140);
+  noStroke();
+  triangle(0, 0, 0, 200, 200, 0);
+
+  fill(25, 79, 38);
+  noStroke();
+  triangle(0, 200, 20, 200, 200, 0);
+  triangle(0, 200, 200, 0, 200, 20);
+  triangle(0, 200, 200, 0, 100, 100);
+
+  //top
+  fill(68, 130, 150);
+  noStroke();
+  rect(0, 0, 200, 30);
+  triangle(0, 0, 2, 200, 30, 0);
+
+  fill(107, 205, 237);
+  noStroke();
+  rect(0, 0, 200, 20);
+  triangle(0, 0, 0, 220, 20, 0);
+
+
+  //draw face
+  push();
+  translate(0, 0);
+  scale(facesize);
+  drawface();
+
+  pop();
+
+  //draw mouth
+  push();
+  translate(mouthx, mouthy);
+  scale(1);
+  drawmouth();
+  pop();
+
+  //draw nose
+  push();
+  translate(0, 0);
+  scale(1);
+  drawnose();
+  pop();
+
+  //draw eyes
+  push();
+  translate(eyex, eyey);
+  scale(1);
+  draweyes();
+  pop();
 
 }
