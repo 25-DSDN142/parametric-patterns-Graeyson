@@ -1,10 +1,10 @@
 //your parameter variables go here!
 
-var eyex = -10; 
-var eyey = 10; 
+var eyex = -10;
+var eyey = 10;
 var mouthx = -10;
 var mouthy = 10;
-var facesize = 1.05; //og 1
+var facesize = 1.02; //og 1
 var mviolet = 'violet';
 var epurple = 'purple';
 
@@ -31,7 +31,7 @@ function wallpaper_background() {
 
 function drawface(x, y) {
   //face
-  fill(61, 133, 58);
+  fill(222, 218, 211);
   noStroke();
   ellipse(110, 90, 135, 135);
 
@@ -40,8 +40,8 @@ function drawface(x, y) {
   noStroke();
   ellipse(110, 90, 125, 135);
 
- 
-  fill(61, 133, 58);
+
+  fill(222, 218, 211);
   noStroke();
   ellipse(110, 90, 125, 125);
   ellipse(110, 95, 125, 125);
@@ -50,7 +50,7 @@ function drawface(x, y) {
 
 function drawmouth(x, y) {
   //mouth
-  fill(96, 166, 93);
+  fill(191, 182, 168);
   noStroke(0);
   ellipse(60, 100, 60, 60);
   ellipse(100, 140, 60, 60);
@@ -58,7 +58,7 @@ function drawmouth(x, y) {
   ellipse(60, 130, 30, 30); //space filler
 
   //shadows
-  fill(27, 61, 38);
+  fill(87, 83, 76);
   noStroke();
   ellipse(100, 150, 40, 40);
   triangle(100, 150, 30, 170, 100, 170);
@@ -76,7 +76,7 @@ function drawmouth(x, y) {
 
 function drawnose(x, y) {
   //nose
-  fill(47, 84, 45);
+  fill(189, 185, 179);
   noStroke();
   ellipse(94, 100, 10, 10);
   ellipse(100, 106, 10, 10);
@@ -86,38 +86,39 @@ function drawnose(x, y) {
 
 }
 
+
 function draweyes(x, y) {
   //eyes
-  fill(255, 255, 255);
+  fill(efill);
   noStroke();
   ellipse(97, 57, 52, 52);
   ellipse(143, 103, 52, 52);
 
-  fill(efill); //pupil
+  fill(222, 218, 211); //pupil
   noStroke();
   ellipse(97, 57, 25, 25);
   ellipse(143, 103, 25, 25);
 
- 
+
 }
 
 function my_symbol() { // do not rename this function. Treat this similarly to a Draw function
   // let bgFill;
 
-   if (facesize > 1.05) {
-     mfill = mviolet;
-     efill = epurple;
-   } else {
-     mfill = color(47, 84, 45);
-     efill = color (58, 172, 207);
+  if (facesize > 1.05) {
+    mfill = mviolet;
+    efill = epurple;
+  } else {
+    mfill = color(133, 127, 117);
+    efill = color(84, 204, 197);
   }
 
   //background
-  fill(133, 237, 140);
+  fill(108, 72, 217);
   noStroke();
   triangle(0, 0, 0, 200, 200, 0);
 
-  fill(25, 79, 38);
+  fill(52, 37, 99);
   noStroke();
   triangle(0, 200, 20, 200, 200, 0);
   triangle(0, 200, 200, 0, 200, 20);
