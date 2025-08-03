@@ -4,18 +4,18 @@ var eyex = -10;
 var eyey = 10;
 var mouthx = -10;
 var mouthy = 10;
-var facesize = 1.02; //og 1
+var facesize = 1.02; //original 1
 var mviolet = 'violet';
 var epurple = 'purple';
 
 
 
 function setup_wallpaper(pWallpaper) {
-  pWallpaper.output_mode(DEVELOP_GLYPH);
-  //pWallpaper.output_mode(GRID_WALLPAPER);
+  //pWallpaper.output_mode(DEVELOP_GLYPH);
+  pWallpaper.output_mode(GRID_WALLPAPER);
 
   pWallpaper.resolution(FIT_TO_SCREEN);
-  pWallpaper.show_guide(true); //set this to false when you're ready to print
+  pWallpaper.show_guide(false); //set this to false when you're ready to print
 
   //Grid settings
   pWallpaper.grid_settings.cell_width = 200;
@@ -24,14 +24,14 @@ function setup_wallpaper(pWallpaper) {
 }
 
 function wallpaper_background() {
-  noStroke();
-  background(250, 240, 245); //light honeydew green colour
+  // noStroke();
+  // background(250, 240, 245); 
 }
 
 
 function drawface(x, y) {
   //face
-  fill(222, 218, 211);
+  fill(61, 133, 58);
   noStroke();
   ellipse(110, 90, 135, 135);
 
@@ -41,7 +41,7 @@ function drawface(x, y) {
   ellipse(110, 90, 125, 135);
 
 
-  fill(222, 218, 211);
+  fill(61, 133, 58);
   noStroke();
   ellipse(110, 90, 125, 125);
   ellipse(110, 95, 125, 125);
@@ -50,7 +50,7 @@ function drawface(x, y) {
 
 function drawmouth(x, y) {
   //mouth
-  fill(191, 182, 168);
+  fill(96, 166, 93);
   noStroke(0);
   ellipse(60, 100, 60, 60);
   ellipse(100, 140, 60, 60);
@@ -58,7 +58,7 @@ function drawmouth(x, y) {
   ellipse(60, 130, 30, 30); //space filler
 
   //shadows
-  fill(87, 83, 76);
+  fill(27, 61, 38);
   noStroke();
   ellipse(100, 150, 40, 40);
   triangle(100, 150, 30, 170, 100, 170);
@@ -76,7 +76,7 @@ function drawmouth(x, y) {
 
 function drawnose(x, y) {
   //nose
-  fill(189, 185, 179);
+  fill(47, 84, 45);
   noStroke();
   ellipse(94, 100, 10, 10);
   ellipse(100, 106, 10, 10);
@@ -86,15 +86,14 @@ function drawnose(x, y) {
 
 }
 
-
 function draweyes(x, y) {
   //eyes
-  fill(efill);
+  fill(255, 255, 255);
   noStroke();
   ellipse(97, 57, 52, 52);
   ellipse(143, 103, 52, 52);
 
-  fill(222, 218, 211); //pupil
+  fill(efill); //pupil
   noStroke();
   ellipse(97, 57, 25, 25);
   ellipse(143, 103, 25, 25);
@@ -103,22 +102,22 @@ function draweyes(x, y) {
 }
 
 function my_symbol() { // do not rename this function. Treat this similarly to a Draw function
-  // let bgFill;
 
+  //IF Statement
   if (facesize > 1.05) {
     mfill = mviolet;
     efill = epurple;
   } else {
-    mfill = color(133, 127, 117);
-    efill = color(84, 204, 197);
+    mfill = color(47, 84, 45);
+    efill = color(58, 172, 207);
   }
 
   //background
-  fill(108, 72, 217);
+  fill(133, 237, 140);
   noStroke();
   triangle(0, 0, 0, 200, 200, 0);
 
-  fill(52, 37, 99);
+  fill(25, 79, 38);
   noStroke();
   triangle(0, 200, 20, 200, 200, 0);
   triangle(0, 200, 200, 0, 200, 20);
